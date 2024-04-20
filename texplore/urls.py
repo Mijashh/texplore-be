@@ -19,13 +19,16 @@ from django.urls import path
 from django.urls.conf import include
 from rest_framework import routers
 
-from product.views import ProductViewSet
+from product.views import ProductViewSet, CategoryViewSet, CartViewSet, CartItemViewSet
 from user.views import AuthViewSet, CustomUserViewSet
 
 router = routers.DefaultRouter()
 router.register(r'products', ProductViewSet, basename='product')
 router.register(r'users', CustomUserViewSet, basename='user')
 router.register(r'auth',AuthViewSet, basename='auth')
+router.register(r'categories', CategoryViewSet, basename='category')
+router.register(r'cart', CartViewSet, basename='cart')
+router.register(r'cart-items', CartItemViewSet, basename='cart-item')
 
 
 urlpatterns = [
